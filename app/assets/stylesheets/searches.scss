@@ -1,0 +1,58 @@
+// Place all the styles related to the searches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#search-bar {
+    z-index: 1;
+    position: absolute;
+    top: 5px;
+
+    width: 100%;
+
+    transition-duration: 500ms;
+
+    #search-input {
+        width: 100%;
+    }
+
+    #search-btn {
+        position: fixed;
+        right: 136px;
+        background-color: transparent;
+        background: 0 none;
+        color: #007bff;
+        border-left: 1px solid grey;
+        padding: 0 0 0 0.5%;
+        cursor: pointer;
+    }
+}
+
+#mini-search-bar {
+    z-index: 1;
+
+    width: 100%;
+
+    #search-conversations-input {
+        width: 100%;
+    }
+
+    #search-btn {
+        position: relative;
+        top: -36px;
+        right: -172px;
+        background-color: transparent;
+        background: 0 none;
+        color: #007bff;
+        padding: 0 0 0 0.5%;
+        cursor: pointer;
+    }
+    #search-conversations-input {
+        border-radius: 0;
+    }
+}
+
+#search-bar.hide {
+    top: -50px;
+}
+
+#main {}

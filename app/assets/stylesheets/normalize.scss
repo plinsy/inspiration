@@ -1,0 +1,33 @@
+ $default-color: #007bff;
+
+ .bg-default {
+     background-color: $default-color;
+ }
+
+ html {}
+
+ html,
+ body {
+     height: fill-available;
+ }
+
+ /* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $default-color;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #FFFFFF;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -1,0 +1,59 @@
+<nav class="navbar-header navbar navbar-fixed">
+    <ul class="list-group">
+        <% if user_signed_in? %>
+        <li class="list-group-item show index conversations">
+            <a href="<%= mes_conversations_path %>">
+                <%= fa_icon "wechat 4x" %></a>
+        </li>
+        <li class="list-group-item dashboard">
+            <a href="<%= mon_dashboard_path %>">
+                <%= fa_icon "dashboard 4x" %></a>
+        </li>
+        <li class="list-group-item sessions destroy">
+            <a href="<%= deconnexion_path %>" data-method="DELETE">
+                <%= fa_icon "sign-out 4x" %></a>
+        </li>
+        <% else %>
+        <li class="list-group-item sessions new">
+            <a href="<%= connexion_path %>">
+                <%= fa_icon "sign-in 4x" %></a>
+        </li>
+        <% end %>
+        <% if controller_name != "conversations" %>
+        <li class="list-group-item searches new">
+            <a href="<%= rechercher_path %>" id="start-search-btn">
+                <%= fa_icon "search 4x" %></a>
+        </li>
+        <% end %>
+        <li class="list-group-item home">
+            <a href="<%= acceuil_path %>">
+                <%= fa_icon "home 4x" %></a>
+        </li>
+        <li class="list-group-item contact">
+            <a href="<%= contact_path %>">
+                <%= fa_icon "phone 4x" %></a>
+        </li>
+        <li class="list-group-item team">
+            <a href="<%= equipe_path %>">
+                <%= fa_icon "users 4x" %></a>
+        </li>
+        <li class="list-group-item about">
+            <a href="<%= apropos_path %>">
+                <%= fa_icon "info-circle 4x" %></a>
+        </li>
+    </ul>
+</nav>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $lists = $(`.navbar li`);
+    $body = $(`body`);
+    for (var i = 0; i < $lists.length; i++) {
+        $list = $lists.eq(i);
+        $controller_name = $body.attr('class').split(" ")[0];
+        $action_name = $body.attr('class').split(" ")[1];
+        if ($list.hasClass($action_name)) {
+            $list.addClass('active');
+        }
+    }
+});
+</script>

@@ -1,0 +1,7 @@
+<%= form_with(url: editer_mon_profil_path, model: current_user, data: { remote: false }) do |f| %>
+	<%= f.text_field :username %>
+	<%= f.text_field :firstname %>
+	<%= f.text_field :lastname %>
+	<%= f.datetime_select :birthdate %>
+	<%= f.submit "Editer", :disable_with => '...' %>
+<% end %>

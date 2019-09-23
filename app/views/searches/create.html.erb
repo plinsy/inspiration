@@ -1,0 +1,26 @@
+<h1>Searches#create</h1>
+<p>Find me in app/views/searches/create.html.erb</p>
+<% if @searches.any? %>
+<ul>
+    <% @searches.each do |user| %>
+    <li>
+        <h3>
+            <%= user.username %>
+        </h3>
+        <ol>
+            <li>
+                <%= user.firstname %>
+            </li>
+            <li>
+                <%= user.lastname %>
+            </li>
+            <li>
+                <%= user.birthdate %>
+            </li>
+        </ol>
+    </li>
+    <% end %>
+</ul>
+<% else %>
+<p>Aucun résultat</p>
+<% end %>

@@ -1,0 +1,23 @@
+<% if controller_name != "conversations" %>
+<div class="container">
+    <%= form_with(url: "/rechercher", html: {id: "search-form"}) do |f| %>
+    <div class="form-inline">
+        <%= f.text_field :'search[name]', id: "search-input", class: "form-control" %>
+        <span id="search-btn" class="">
+            <%= fa_icon "search 2x" %>
+        </span>
+    </div>
+    <% end %>
+    <div data-target="searches-result" class="w-100"></div>
+</div>
+<% else %>
+<%= form_with(url: "/rechercher", html: {id: "search-form"}) do |f| %>
+<div class="form-inline">
+    <%= f.text_field :'search[name]', id: "search-conversations-input", class: "p-1 form-control" %>
+    <span id="search-btn" class="">
+        <%= fa_icon "search 2x" %>
+    </span>
+</div>
+<% end %>
+<div data-target="searches-result" class="w-100"></div>
+<% end %>

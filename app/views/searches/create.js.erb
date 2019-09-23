@@ -1,0 +1,52 @@
+$resultDiv.html(`
+<% if @type == "users" %>
+    <% if @searches.any? %>
+    <div class="jumbotron text-center p-0 my-0">
+        <table class="table table-active">
+            <thead class="table table-dark table-bordered">
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Heure de décès</th>
+                </tr>
+            </thead>
+            <% @searches.each do |user| %>
+            <tr class="table table-success">
+                <td>
+                    <%= user.username %>
+                </td>
+                <td>
+                    <%= user.firstname %>
+                </td>
+                <td>
+                    <%= user.lastname %>
+                </td>
+                <td>
+                    <%= user.birthdate %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+    <% else %>
+    <mark class="mx-1">aucun résultat</mark>
+    <% end %>
+<% else %>
+    <% if @searches.any? %>
+    <ul class="list-unstyled px-1 conversation-list">
+        <% @searches.each do |conversation| %>
+        <li>
+            <%= link_to conversation_path(conversation.id), class: "text-white" do %>
+            <%= fa_icon "user-circle 2x" %>
+            <% end %>
+            <%= conversation.name %>
+        </li>
+        <% end %>
+    </ul>
+    <% else %>
+    <mark class="mx-1">aucun résultat</mark>
+    <% end %>
+<% end %>
+`);
+search();

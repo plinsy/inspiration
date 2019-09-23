@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SaynaMadagascar</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+</head>
+
+<body class="<%= controller_name %> <%= action_name %>">
+    <div class="row m-0">
+        <div class="left col-1 col-sm-1 col-md-1 col-lg-1 px-0">
+            <%= render 'pages/navbar' %>
+        </div>
+        <div id="flashes">
+            <%= render 'pages/flash' %>
+        </div>
+        <div class="right px-0 bg-default col-11 col-sm-11 col-md-11 col-lg-11">
+            <div id="main">
+                <div class="row p-0 m-0">
+                    <div class="px-0 col-2 col-sm-2 col-md-2 col-lg-2 search-div">
+                        <div id="mini-search-bar">
+                            <%= render template: 'searches/new' %>
+                        </div>
+                        <div id="search-result"></div>
+                    </div>
+                    <div class="col-10 col-sm-10 col-md-10 col-lg-10">
+                        <%= yield %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
